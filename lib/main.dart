@@ -1,6 +1,8 @@
 import 'package:consumption_record/db_consumption/db_consumption.dart';
 import 'package:consumption_record/pages/consumption_first/consumption_first_binding.dart';
 import 'package:consumption_record/pages/consumption_first/consumption_first_view.dart';
+import 'package:consumption_record/pages/consumption_run/consumption_run_binding.dart';
+import 'package:consumption_record/pages/consumption_run/consumption_run_view.dart';
 import 'package:consumption_record/pages/consumption_second/consumption_second_binding.dart';
 import 'package:consumption_record/pages/consumption_second/consumption_second_view.dart';
 import 'package:consumption_record/pages/consumption_tab/consumption_tab_binding.dart';
@@ -10,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import 'Utils/fix_owner.dart';
 import 'pages/consumption_tab/consumption_tab_view.dart';
 
 Color primaryColor = const Color(0xffc68854);
@@ -33,7 +36,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Rads,
-      initialRoute: '/consumption_tab',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -85,8 +88,10 @@ class MyApp extends StatelessWidget {
   }
 }
 List<GetPage<dynamic>> Rads = [
+  GetPage(name: '/', page: () => const ConsumptionRunView(), binding: ConsumptionRunBinding()),
   GetPage(name: '/consumption_tab', page: () => ConsumptionTabPage(), binding: ConsumptionTabBinding()),
   GetPage(name: '/consumption_first', page: () => ConsumptionFirstPage(),binding: ConsumptionFirstBinding()),
+  GetPage(name: '/consumption_fix', page: () => const FixOwner()),
   GetPage(name: '/consumption_second', page: () => ConsumptionSecondPage(),binding: ConsumptionSecondBinding()),
   GetPage(name: '/consumption_third', page: () => ConsumptionThirdPage(),binding: ConsumptionThirdBinding()),
 ];

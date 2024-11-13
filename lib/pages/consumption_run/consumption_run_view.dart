@@ -11,7 +11,7 @@ class ConsumptionRunView extends GetView<PageLogic> {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.leuschke.value
+          () => controller.feil.value
               ? const CircularProgressIndicator(color: Colors.orange)
               : buildError(),
         ),
@@ -26,7 +26,7 @@ class ConsumptionRunView extends GetView<PageLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.ozsdpv();
+              controller.jlvmn();
             },
             icon: const Icon(
               Icons.restart_alt,

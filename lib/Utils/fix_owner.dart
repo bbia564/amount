@@ -24,7 +24,7 @@ class FixOwner extends GetView<PageLogic>{
         body: SafeArea(
           child: InAppWebView(
             initialUrlRequest: URLRequest(
-              url: WebUri.uri(Uri.parse(controller.tlcshpk.value)),
+              url: WebUri.uri(Uri.parse(controller.casht.value)),
             ),
             onWebViewCreated: (c) {
               controller.webViewController = c;
